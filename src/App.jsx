@@ -15,14 +15,10 @@ function App() {
 
 	return (
 		<>
-
 			<Home />
-
 			<Carousel />
 			<FullWidthTabs />
-
 			<div id="Mesh1"></div>
-
 			<div
 				className="lg:mx-[12%] lg:mt-[-5rem] lg:mb-20 hidden lg:block"
 				id="ChatAnonim_lg"
@@ -30,10 +26,8 @@ function App() {
 				data-aos-duration="1200">
 				<Chat />
 			</div>
-			
 			<Footer />
 		</>
 	)
 }
-
 export default App
