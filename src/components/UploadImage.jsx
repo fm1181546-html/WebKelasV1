@@ -4,12 +4,11 @@ import Swal from "sweetalert2";
 
 function UploadImage() {
   const [imageUpload, setImageUpload] = useState(null);
-  const [imageList, setImageList] = useState([]); // Tetap dipertahankan sesuai kode aslimu
-  const maxUploadSizeInBytes = 10 * 1024 * 1024; // 10MB
+  const [imageList, setImageList] = useState([]); 
+  const maxUploadSizeInBytes = 10 * 1024 * 1024; 
   const maxUploadsPerDay = 20;
   
   useEffect(() => {
-    // listImages(); 
   }, []);
 
   const uploadImage = () => {
@@ -46,7 +45,6 @@ function UploadImage() {
       return;
     }
 
-    // Tampilkan loading ramah dari SweetAlert agar user tahu proses sedang berjalan
     Swal.fire({
       title: "Uploading...",
       text: "Mohon tunggu sebentar",
@@ -58,10 +56,6 @@ function UploadImage() {
 
     const formData = new FormData();
     formData.append("image", imageUpload);
-
-    // Ambil API key dari environment variable, JANGAN hardcode langsung di kode.
-    // Buat file .env di root project berisi: VITE_IMGBB_API_KEY=your_own_private_key
-    // (ganti VITE_ prefix sesuai bundler yang dipakai, mis. REACT_APP_ untuk CRA)
     const imgbbApiKey = import.meta.env.VITE_IMGBB_API_KEY;
 
     if (!imgbbApiKey) {
@@ -85,9 +79,7 @@ function UploadImage() {
       .then((result) => {
         if (!result.success) throw new Error("Gagal hosting gambar");
 
-        const url = result.data.url; // Link langsung (.jpg/.png) hasil convert file
-
-        // Simpan URL tersebut ke Cloud Firestore Database ('GambarAman')
+        const url = result.data.url;
         const db = getFirestore();
         return addDoc(collection(db, "GambarAman"), {
           imageUrl: url,
@@ -106,7 +98,7 @@ function UploadImage() {
             container: "sweet-alert-container",
           },
         });
-        setImageUpload(null); // Reset gambar di pratinjau kembali ke tanda (+)
+        setImageUpload(null); 
       })
       .catch((error) => {
         console.error(error);
