@@ -35,7 +35,6 @@ const BoxGallery = () => {
         return () => unsubscribe();
     }, []);
 
-   // ... bagian import tetap sama
     return (
         <div id="BoxGallery" className="p-4 bg-[#1e1e1e] rounded-xl border border-gray-800 shadow-md">
             <div className="flex justify-between items-center mb-3">
