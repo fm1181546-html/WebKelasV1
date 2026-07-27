@@ -8,7 +8,6 @@ import Typography from "@mui/material/Typography"
 import { useSpring, animated } from "@react-spring/web"
 import Chat from "./ChatAnonim"
 
-// Impor ikon tombol silang (close button)
 import CloseIcon from "@mui/icons-material/Close"
 
 const Fade = React.forwardRef(function Fade(props, ref) {
@@ -30,7 +29,6 @@ const Fade = React.forwardRef(function Fade(props, ref) {
 			}
 		},
 	})
-
 	return (
 		<animated.div ref={ref} style={style} {...other}>
 			{React.cloneElement(children, { onClick })}
@@ -90,13 +88,9 @@ export default function BoxTextAnonim() {
 				}}>
 				<Fade in={open}>
 					<Box className="" id="modal-container-chat">
-						{/* Tambahkan tombol silang di kanan atas */}
 						<Button onClick={handleClose} style={{ position: "absolute", top: "2%", right: "0" , color: "white",opacity: "70%"}}>
 							<CloseIcon />
 						</Button>
-						{/* <Typography id="spring-modal-title" variant="h6" component="h2">
-							Text in a modal
-						</Typography> */}
 						<Typography id="spring-modal-description" sx={{ mt: 3 }}>
 							<Chat/>
 						</Typography>
